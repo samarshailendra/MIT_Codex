@@ -1,0 +1,16 @@
+Django>=4.2
+djangorestframework
+langchain>=0.1.16
+langchain-openai>=0.1.6
+langchain-community>=0.0.29
+openai
+sentence-transformers
+scikit-learn
+faiss-cpu
+PyMuPDF
+python-docx
+docx2txt
+gunicorn
+python-dotenv
+django-cors-headers
+

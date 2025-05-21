@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+edai-env/
+.edai-env/
+venv/
+.env
+.env.*
+
+# Django-specific
+db.sqlite3
+media/
+*.log
+*.pot
+*.pyc
+instance/
+.webassets-cache
+
+# Migrations 
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Static and build files
+staticfiles/
+static/
+build/
+dist/
+
+# VSCode / IDE stuff
+.vscode/
+.idea/
+*.swp
