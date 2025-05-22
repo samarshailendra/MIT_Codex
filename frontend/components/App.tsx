@@ -7,7 +7,7 @@ interface WorkflowsResponse {
 
 type FileState = Record<string, File | null>;
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? '';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? '';
 
 const App: React.FC = () => {
   const [graderName, setGraderName] = useState('');
