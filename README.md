@@ -41,3 +41,4 @@ python manage.py createsuperuser
 # 6. Run the server from the root folder on port 8080
 cd ..
 PYTHONPATH=$(pwd) python backend/manage.py runserver 8080
+
