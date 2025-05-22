@@ -33,3 +33,33 @@ dist/
 .vscode/
 .idea/
 *.swp
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+
+# Vite / React build artifacts
+dist/
+build/
+.cache/
+.vite/
+
+# Environment variables
+.env
+.env.*.local
+
+# Local development
+.DS_Store
+*.local
+*.sublime-workspace
+*.sublime-project
+
+# Dependency resolutions (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
