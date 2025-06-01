@@ -6,9 +6,13 @@ export default function Home() {
     <Layout>
       <h1>Welcome to EdGenAI</h1>
       <p>
-        EdGenAI's Auto Grader leverages Generative AI to streamline the grading
-        process. Upload your assignments and let our models provide fast and
-        consistent feedback for every submission.
+        At EdGenAI we harness Generative AI to transform the learning experience
+        for both students and instructors.
+      </p>
+      <p>
+        Our flagship <strong>Auto Grader</strong> automates the grading workflow,
+        providing consistent and detailed feedback within minutes. Simply upload
+        your assignment files and let our models handle the rest.
       </p>
       <p>
         Explore our <Link href="/services">services</Link> to learn more about
