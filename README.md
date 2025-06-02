@@ -8,7 +8,7 @@ This is the backend for an agentic autograding system built with Django, LangCha
 
 - Upload assignments, sample answers, rubrics, and student submissions
 - Uses LLM agents to assess and grade submissions
-- Built with modular apps: `api`, `grading`, `agents`, `pipelines`
+- Built with modular apps: `api`, `grading`, `agents`, `pipelines`.
 - Tracks grader info, similarity metrics, and LLM-generated feedback
 - Built-in HTML interface for form upload and grading results
 - Easy to extend for REST APIs, frontend, or CI/CD workflows
