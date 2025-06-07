@@ -20,7 +20,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="services-section container">
+      <section className="services-section container page-section">
         <h2>Our Services</h2>
         <div className="cards service-cards">
           <Link to="/services#consultancy" className="card link-card">
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="products-section container">
+      <section className="products-section container page-section">
         <h2>Our Products</h2>
         <div className="cards">
           <div className="card link-card">
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="why-section container">
+      <section className="why-section container page-section">
         <h2>Why Choose EdGenAI?</h2>
         <div className="cards">
           <div className="card link-card">GenAI for Authentic Learning</div>
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="success-section container">
+      <section className="success-section container page-section">
         <h2>Success Stories</h2>
         <div className="testimonials">Logos / Testimonials Placeholder</div>
       </section>
