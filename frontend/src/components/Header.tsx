@@ -25,6 +25,9 @@ export default function Header() {
       </button>
 
       <nav className={`nav ${mobileOpen ? 'open' : ''}`}>
+        <Link to="/" className="nav-link" onClick={closeMenus}>
+          Home
+        </Link>
         <div
           className="nav-item"
           onMouseEnter={() => setOpenMenu('why')}
