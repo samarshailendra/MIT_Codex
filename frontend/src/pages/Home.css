@@ -3,6 +3,12 @@
   padding: 4rem 1rem;
 }
 
+.subtitle {
+  max-width: 640px;
+  margin: 0.5rem auto 0;
+  font-size: 1.25rem;
+}
+
 .actions {
   margin-top: 1.5rem;
   display: flex;
@@ -10,7 +16,7 @@
   justify-content: center;
 }
 
-.services, .home-products, .why {
+.services, .home-products, .why, .success, .demo {
   margin-top: 3rem;
 }
 
@@ -35,6 +41,52 @@
   display: block;
 }
 
+.offerings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #eef2ff;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.logos {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.logo-placeholder {
+  background: #e5e7eb;
+  padding: 2rem 3rem;
+  border-radius: 4px;
+  color: #6b7280;
+}
+
+.video-placeholder {
+  background: #d1d5db;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+  border-radius: 6px;
+}
+
+.video-placeholder::after {
+  content: 'Demo Video';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #374151;
+}
+
 
 .intro {
   margin-top: 1.5rem;
@@ -50,6 +102,10 @@
 @media (max-width: 600px) {
   .hero {
     padding: 2rem 1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 
   .lead {

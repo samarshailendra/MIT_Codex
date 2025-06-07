@@ -31,8 +31,10 @@ export default function Products() {
       <section className="product-demos">
         <h2>Product Demos</h2>
         <div className="demo-grid">
-          <div className="video-placeholder">Auto Grade Demo</div>
-          <div className="video-placeholder">Plan My Assignments Demo</div>
+          <div className="video-placeholder">Auto Grade Demo 1</div>
+          <div className="video-placeholder">Auto Grade Demo 2</div>
+          <div className="video-placeholder">Plan My Assignment Demo 1</div>
+          <div className="video-placeholder">Plan My Assignment Demo 2</div>
         </div>
       </section>
     </div>

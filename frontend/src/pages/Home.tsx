@@ -6,45 +6,61 @@ export default function Home() {
     <div className="container home">
       <section className="hero">
         <h1>Empowering Education with Generative AI</h1>
-        <p>Auto Grade, Plan My Assignments, and Expert Consultancy to Transform Learning.</p>
-        <div className="actions">
-          <Link to="/products" className="btn-primary">Explore Products</Link>
-          <Link to="/request-access" className="btn-primary">Request Access</Link>
-        </div>
-      </section>
-
-      <section className="intro">
-        <p className="lead">
-          We combine cutting‑edge AI with proven pedagogy to streamline grading
-          and assignment planning while keeping instructors in the loop.
+        <p className="subtitle">
+          Auto Grade, Plan My Assignment, and GenAI Consultancy to Transform
+          Learning
         </p>
+        <div className="actions">
+          <Link to="/services" className="btn-primary">Explore Services</Link>
+          <Link to="/products" className="btn-primary">Explore Products</Link>
+        </div>
       </section>
       <section className="services">
         <h2>Our Services</h2>
-        <ul className="grid">
-          <li><Link to="/services#consultancy">GenAI Consultancy</Link></li>
-          <li><Link to="/services#content-design">Content Design</Link></li>
-          <li><Link to="/services#authentic">Authentic Assignment Design</Link></li>
-          <li><Link to="/services#course-design">Course Design</Link></li>
-        </ul>
+        <div className="offerings">
+          <Link to="/services#consultancy" className="card">
+            <h3>GenAI Consultancy</h3>
+            <ul>
+              <li>Content Design</li>
+              <li>Authentic Assessment Design</li>
+              <li>Course Design</li>
+            </ul>
+          </Link>
+        </div>
       </section>
 
       <section className="home-products">
         <h2>Our Products</h2>
-        <ul className="grid">
-          <li><Link to="/products#auto-grade">Auto Grade</Link></li>
-          <li><Link to="/products#plan-my-assignments">Plan My Assignments</Link></li>
-        </ul>
+        <div className="offerings">
+          <Link to="/products#auto-grade" className="card">
+            <h3>Auto Grade</h3>
+          </Link>
+          <Link to="/products#plan-my-assignments" className="card">
+            <h3>Plan My Assignment</h3>
+          </Link>
+        </div>
       </section>
 
       <section className="why">
         <h2>Why Choose EdGenAI?</h2>
         <ul className="grid">
-          <li>AI for Authentic Learning</li>
-          <li>Transparent &amp; Modular</li>
-          <li>API-first architecture</li>
+          <li>GenAI for Authentic Learning</li>
+          <li>Transparency &amp; Modular</li>
           <li>Privacy &amp; Security Focus</li>
         </ul>
+      </section>
+
+      <section className="success">
+        <h2>Success Stories</h2>
+        <div className="logos">
+          <div className="logo-placeholder">University A</div>
+          <div className="logo-placeholder">College B</div>
+        </div>
+      </section>
+
+      <section className="demo">
+        <h2>Platform Demo</h2>
+        <div className="video-placeholder" />
       </section>
 
       <section className="cta">
