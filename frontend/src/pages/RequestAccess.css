@@ -1,0 +1,17 @@
+.access-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.access-form input {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+.status {
+  margin-top: 1rem;
+  text-align: center;
+}

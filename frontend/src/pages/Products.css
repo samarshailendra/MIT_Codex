@@ -1,0 +1,25 @@
+.products h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.product {
+  margin-bottom: 2rem;
+  background: #eef2ff;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.product h2 {
+  margin-top: 0;
+}
+
+.product ul {
+  list-style: disc inside;
+  margin-bottom: 1rem;
+}
