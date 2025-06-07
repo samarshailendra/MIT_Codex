@@ -23,3 +23,21 @@
   list-style: disc inside;
   margin-bottom: 1rem;
 }
+
+.video-placeholder {
+  background: #d1d5db;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.video-placeholder::after {
+  content: 'Demo Video';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #374151;
+}
