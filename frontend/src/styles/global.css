@@ -15,6 +15,11 @@ main {
 
 h1, h2, h3 {
   color: #111827;
+  margin: 0;
+}
+
+section {
+  padding: 2rem 0;
 }
 
 .container {

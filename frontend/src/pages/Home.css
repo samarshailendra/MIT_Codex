@@ -1,6 +1,6 @@
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
   width: 100%;
 }
 
@@ -47,11 +47,7 @@
 .products-section,
 .why-section,
 .success-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 1rem;
+  margin-top: 2rem;
   text-align: center;
 }
 
