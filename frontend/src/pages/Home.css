@@ -24,6 +24,16 @@
   text-align: center;
 }
 
+.link-card {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.link-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .success-section {
   margin-top: 3rem;
   text-align: center;

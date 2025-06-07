@@ -22,15 +22,19 @@ export default function Home() {
 
       <section className="services-section container">
         <h2>Our Services</h2>
-        <div className="cards">
-          <div className="card">
+        <div className="cards service-cards">
+          <Link to="/services#consultancy" className="card link-card">
             <h3>GenAI Consultancy</h3>
-            <ul>
-              <li>Content Design</li>
-              <li>Authentic Assessment Design</li>
-              <li>Course Design</li>
-            </ul>
-          </div>
+          </Link>
+          <Link to="/services#content-design" className="card link-card">
+            <h3>Content Design</h3>
+          </Link>
+          <Link to="/services#authentic" className="card link-card">
+            <h3>Authentic Assessment Design</h3>
+          </Link>
+          <Link to="/services#course-design" className="card link-card">
+            <h3>Course Design</h3>
+          </Link>
         </div>
       </section>
 
