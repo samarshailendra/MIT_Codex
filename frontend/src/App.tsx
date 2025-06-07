@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Services from './pages/Services';
 import Contact from './pages/Contact';
 import RequestAccess from './pages/RequestAccess';
 import Header from './components/Header';
@@ -13,6 +14,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/request-access" element={<RequestAccess />} />

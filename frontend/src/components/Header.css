@@ -10,15 +10,32 @@
   z-index: 10;
 }
 
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
 .nav a {
   margin-right: 1rem;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  transition: opacity 0.2s;
 }
 
 .nav a:last-child {
   margin-right: 0;
+}
+
+.nav a:hover {
+  opacity: 0.8;
 }
 
 .request-button {
