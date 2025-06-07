@@ -1,6 +1,18 @@
 .hero {
   text-align: center;
   padding: 4rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .hero-actions {
@@ -34,8 +46,15 @@
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.services-section,
+.products-section,
+.why-section,
 .success-section {
-  margin-top: 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 1rem;
   text-align: center;
 }
 
