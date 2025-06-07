@@ -41,27 +41,35 @@ export default function Home() {
       <section className="products-section container page-section">
         <h2>Our Products</h2>
         <div className="cards">
-          <div className="card link-card">
+          <Link to="/products#auto-grade" className="card link-card">
             <h3>Auto Grade</h3>
-          </div>
-          <div className="card link-card">
+          </Link>
+          <Link to="/products#plan-my-assignments" className="card link-card">
             <h3>Plan My Assignment</h3>
-          </div>
+          </Link>
         </div>
       </section>
 
       <section className="why-section container page-section">
         <h2>Why Choose EdGenAI?</h2>
         <div className="cards">
-          <div className="card link-card">GenAI for Authentic Learning</div>
-          <div className="card link-card">Transparency and Modular</div>
-          <div className="card link-card">Privacy and Security Focus</div>
+          <Link to="/why-edgenai#mission" className="card link-card">
+            GenAI for Authentic Learning
+          </Link>
+          <Link to="/why-edgenai#how-we-work" className="card link-card">
+            Transparency and Modular
+          </Link>
+          <Link to="/why-edgenai#ai-principles" className="card link-card">
+            Privacy and Security Focus
+          </Link>
         </div>
       </section>
 
       <section className="success-section container page-section">
         <h2>Success Stories</h2>
-        <div className="testimonials">Logos / Testimonials Placeholder</div>
+        <Link to="/success-stories" className="testimonials link-card">
+          Logos / Testimonials Placeholder
+        </Link>
       </section>
     </div>
   );
