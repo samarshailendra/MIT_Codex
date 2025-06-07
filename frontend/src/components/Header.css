@@ -12,8 +12,18 @@
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  gap: 1rem;
+}
+
+.nav.open {
+  display: block;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: #4f46e5;
+  padding: 1rem 2rem;
 }
 
 .logo {
@@ -22,12 +32,13 @@
   color: #fff;
 }
 
-.nav a {
-  margin-right: 1rem;
+.nav a,
+.nav-link {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.2s;
+  position: relative;
 }
 
 .nav a:last-child {
@@ -36,6 +47,40 @@
 
 .nav a:hover {
   opacity: 0.8;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  color: #1f2937;
+  min-width: 200px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s;
+  border-radius: 6px;
+  z-index: 5;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.25rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .request-button {
@@ -49,4 +94,55 @@
 
 .request-button:hover {
   background: #3730a3;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #4f46e5;
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .dropdown {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    color: #fff;
+  }
+
+  .dropdown a {
+    padding: 0.25rem 0 0.25rem 1rem;
+  }
 }
