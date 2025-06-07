@@ -4,6 +4,8 @@ import Products from './pages/Products';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import RequestAccess from './pages/RequestAccess';
+import WhyEdGenAI from './pages/WhyEdGenAI';
+import SuccessStories from './pages/SuccessStories';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -17,6 +19,8 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/why-edgenai" element={<WhyEdGenAI />} />
+          <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/request-access" element={<RequestAccess />} />
         </Routes>
       </main>

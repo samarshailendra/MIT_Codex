@@ -32,7 +32,9 @@ export default function Header() {
           className="nav-item"
           onMouseEnter={() => setOpenMenu('why')}
         >
-          <span className="nav-link">Why EdGenAI</span>
+          <Link to="/why-edgenai" className="nav-link" onClick={closeMenus}>
+            Why EdGenAI
+          </Link>
           <div className={`dropdown ${openMenu === 'why' ? 'open' : ''}`}>
             <Link to="/mission">Mission</Link>
             <Link to="/how-we-work">How We Work</Link>
@@ -71,7 +73,9 @@ export default function Header() {
           className="nav-item"
           onMouseEnter={() => setOpenMenu('success')}
         >
-          <span className="nav-link">Success Stories</span>
+          <Link to="/success-stories" className="nav-link" onClick={closeMenus}>
+            Success Stories
+          </Link>
           <div className={`dropdown ${openMenu === 'success' ? 'open' : ''}`}>
             <Link to="/case-studies">Case Studies</Link>
             <Link to="/testimonials">Testimonials</Link>
