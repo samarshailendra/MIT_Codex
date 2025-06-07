@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EdGenAI - Project Planner</title>
+  <title>EdGenAI - Plan My Assignment</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,14 +17,246 @@
     </nav>
   </header>
   <main>
-    <h1>Project Planner</h1>
-    <p>Coming soon...</p>
+    <section id="tools">
+      <h1>Assignment Tools</h1>
+      <form id="gradingForm" enctype="multipart/form-data">
+        <label for="graderName" id="nameLabel">Grader Name:</label>
+        <input type="text" name="graderName" id="graderName" required />
+
+        <label for="workflowSelect">What would you like to do?</label>
+        <select name="workflow" id="workflowSelect" required onchange="toggleFields()">
+          <option value="internal_review">AutoGrade</option>
+          <option value="project_planner" selected>Plan My Assignment</option>
+          <option value="handwritten_ocr">Handwritten OCR + AutoGrade</option>
+          <option value="test_view">Test Workflow</option>
+        </select>
+
+        <div id="assignmentFileGroup">
+          <label for="assignmentFile">Assignment File (PDF):</label>
+          <input type="file" name="assignmentFile" required />
+        </div>
+
+        <div id="gradingFields">
+          <label for="solutionFile">Student's Solution File(s) (PDF):</label>
+          <input type="file" name="solutionFile" id="solutionFile" multiple required />
+
+          <label for="sampleFile">Sample Solution File (PDF):</label>
+          <input type="file" name="sampleFile" required />
+
+          <label for="rubricsFile">Marking Rubric File (PDF):</label>
+          <input type="file" name="rubricsFile" required />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="output"></div>
+      <button class="export-btn" onclick="exportToCSV()">Export as CSV</button>
+    </section>
+
+    <section id="about">
+      <h1>About Us</h1>
+      <div class="card">
+        <p>
+          Our mission is to create a smarter educational ecosystem powered by Generative AI. At Ingeno, we are a team of researchers and engineers building tools that make learning scalable, accessible, and accurate.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1>Contact Us</h1>
+      <div class="card">
+        <p>Email: hello@ingeno.ac.edu</p>
+        <p>Phone: +61 415149669</p>
+        <p>Address: 28 Bouverie St</p>
+      </div>
+      <footer>© 2025 Ingeno Academic Tools</footer>
+    </section>
+
+    <section id="register">
+      <h1>Register for Trial Access</h1>
+      <div class="card">
+        <p>Register for a trial access to our assignment tools before official release. Experience the future of education with Ingeno.</p>
+        <form action="https://formsubmit.co/abhi291097@gmail.com" method="POST">
+          <label for="trialName">Full Name:</label>
+          <input type="text" id="trialName" name="Name" required />
+
+          <label for="trialEmail">Email ID:</label>
+          <input type="email" id="trialEmail" name="Email" required />
+
+          <label for="trialOrg">Organization:</label>
+          <input type="text" id="trialOrg" name="Organization" required />
+
+          <label for="trialPhone">Phone Number (optional):</label>
+          <input type="text" id="trialPhone" name="Phone" />
+
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+
+          <button type="submit">Submit Registration</button>
+        </form>
+      </div>
+    </section>
   </main>
-  <footer>
-    &copy; <span id="year"></span> EdGenAI
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+    <script>
+      let latestTasks = null;
+      let allResults = [];
+
+      function showSection(id) {
+        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        document.querySelector(`.nav-link[onclick*="${id}"]`).classList.add('active');
+      }
+
+      function toggleFields() {
+        const workflow = document.getElementById("workflowSelect").value;
+        const gradingFields = document.getElementById("gradingFields");
+        const nameLabel = document.getElementById("nameLabel");
+        const graderInput = document.getElementById("graderName");
+
+        if (workflow === "project_planner") {
+          gradingFields.style.display = "none";
+          Array.from(gradingFields.querySelectorAll("input")).forEach(i => i.disabled = true);
+          nameLabel.innerText = "Assignment Name:";
+          graderInput.placeholder = "e.g. BN104 - OS Assignment";
+        } else {
+          gradingFields.style.display = "block";
+          Array.from(gradingFields.querySelectorAll("input")).forEach(i => i.disabled = false);
+          nameLabel.innerText = "Grader Name:";
+          graderInput.placeholder = "";
+        }
+      }
+
+      function renderResult(result, filename=null) {
+        const outputEl = document.getElementById("output");
+        if (!outputEl.renderedOnce) {
+          outputEl.innerHTML = "";
+          outputEl.renderedOnce = true;
+        }
+        let parsed = result;
+        if (typeof result === "string") {
+          try { parsed = JSON.parse(result); } 
+          catch { outputEl.innerText = "❌ Failed to parse JSON."; return; }
+        }
+        if (parsed.description) {
+          try { parsed = JSON.parse(parsed.description); } 
+          catch { outputEl.innerText = "❌ Failed to parse planner description."; return; }
+        }
+        // Detect planner (WBS) workflow (tasks is an array)
+        if (parsed.tasks && Array.isArray(parsed.tasks)) {
+          latestTasks = null;
+          const container = document.createElement("div");
+          container.innerHTML = "<h2>📋 Work Breakdown Structure</h2>";
+          parsed.tasks.forEach(task => {
+            const block = document.createElement("div");
+            block.className = "task-block";
+            const title = `<strong>${task.task_id}. ${task.task_name}</strong> (⏱️ ${task.efforts} day(s), Deadline: ${task.deadline})`;
+            const steps = task.steps.map(s => `• ${s.step_description}`).join("<br>");
+            block.innerHTML = `${title}<br>${steps}`;
+            container.appendChild(block);
+          });
+          outputEl.appendChild(container);
+          return;
+        }
+        // Grading result (tasks is object)
+        if (parsed.tasks && typeof parsed.tasks === "object") {
+          if (!latestTasks) latestTasks = {};
+          if (filename) {
+            allResults.push({filename, tasks: parsed.tasks, total: parsed.total_score});
+          }
+          const container = document.createElement("div");
+          container.className = "grading-result-block";
+          container.style.marginBottom = "2em";
+          container.innerHTML = `<h2>📝 Grading Results ${filename ? "for " + filename : ""}</h2>`;
+          for (const [qid, [max, awarded, feedback]] of Object.entries(parsed.tasks)) {
+            const block = document.createElement("div");
+            block.className = "task-block";
+            block.innerHTML = `<strong>${qid}</strong>: ${awarded} / ${max} marks<br><br><em>💬 ${feedback}</em>`;
+            container.appendChild(block);
+          }
+          const total = document.createElement("p");
+          total.style.fontWeight = "bold";
+          total.innerText = `✅ Total Score: ${parsed.total_score}`;
+          container.appendChild(total);
+          outputEl.appendChild(container);
+          return;
+        }
+        outputEl.innerText = JSON.stringify(parsed, null, 2);
+      }
+
+      function exportToCSV() {
+        if (!allResults.length) { alert("No data to export yet."); return; }
+        let csvRows = [["Student File", "Question", "Max Marks", "Awarded Marks", "Feedback"]];
+        for (const result of allResults) {
+          for (const [qid, [max, awarded, feedback]] of Object.entries(result.tasks)) {
+            csvRows.push([
+              result.filename,
+              qid, max, awarded, `"${feedback.replace(/"/g, '""')}"`
+            ]);
+          }
+        }
+        const csv = csvRows.map(row => row.join(",")).join("\n");
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "grading_results.csv");
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      document.addEventListener("DOMContentLoaded", toggleFields);
+
+      document.getElementById("gradingForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        allResults = [];
+        document.getElementById("output").innerHTML = "<b>Grading in progress...</b>";
+        document.getElementById("output").renderedOnce = false;
+
+        // Use original FormData logic
+        const baseFormData = new FormData(this);
+
+        // Extract shared fields and files
+        const graderName = baseFormData.get("graderName");
+        const workflow = baseFormData.get("workflow");
+        const assignmentFile = baseFormData.get("assignmentFile");
+        const sampleFile = baseFormData.get("sampleFile");
+        const rubricsFile = baseFormData.get("rubricsFile");
+        const studentFiles = this.solutionFile.files;
+
+        if (!studentFiles.length) {
+          document.getElementById("output").innerText = "❌ Please select at least one Student Solution file.";
+          return;
+        }
+
+        // For prod system make it empty.
+let API_BASE = "";
+
+        for (const file of studentFiles) {
+          const formData = new FormData();
+          formData.append("graderName", graderName);
+          formData.append("workflow", workflow);
+          formData.append("assignmentFile", assignmentFile);
+          formData.append("sampleFile", sampleFile);
+          formData.append("rubricsFile", rubricsFile);
+          formData.append("solutionFile", file);
+
+          try {
+            const response = await fetch(`${API_BASE}/api/grade/`, {
+              method: "POST",
+              body: formData
+            });
+            const result = await response.json();
+            renderResult(result, file.name);
+          } catch (err) {
+            renderResult({error: `❌ Request failed for ${file.name}: ${err.message}`});
+          }
+        }
+      });
+    </script>
 </body>
 </html>
