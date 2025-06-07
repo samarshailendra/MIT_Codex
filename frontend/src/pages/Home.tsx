@@ -3,51 +3,61 @@ import './Home.css';
 
 export default function Home() {
   return (
-    <div className="container home">
-      <section className="hero">
+    <div className="home-page">
+      <section className="hero container">
         <h1>Empowering Education with Generative AI</h1>
-        <p>Auto Grade, Plan My Assignments, and Expert Consultancy to Transform Learning.</p>
-        <div className="actions">
-          <Link to="/products" className="btn-primary">Explore Products</Link>
-          <Link to="/request-access" className="btn-primary">Request Access</Link>
+        <p>
+          Auto Grade, Plan My Assignment, and GenAI Consultancy to Transform
+          Learning
+        </p>
+        <div className="hero-actions">
+          <Link to="/services" className="btn-primary">
+            Explore Services
+          </Link>
+          <Link to="/products" className="btn-primary">
+            Explore Products
+          </Link>
         </div>
       </section>
 
-      <section className="video">
-        <h2>Platform Demo</h2>
-        <div className="video-placeholder">Demo Video Placeholder</div>
-      </section>
-      <section className="services">
+      <section className="services-section container">
         <h2>Our Services</h2>
-        <ul className="grid">
-          <li><Link to="/services#consultancy">GenAI Consultancy</Link></li>
-          <li><Link to="/services#content-design">Content Design</Link></li>
-          <li><Link to="/services#authentic">Authentic Assignment Design</Link></li>
-          <li><Link to="/services#course-design">Course Design</Link></li>
-        </ul>
+        <div className="cards">
+          <div className="card">
+            <h3>GenAI Consultancy</h3>
+            <ul>
+              <li>Content Design</li>
+              <li>Authentic Assessment Design</li>
+              <li>Course Design</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <section className="home-products">
+      <section className="products-section container">
         <h2>Our Products</h2>
-        <ul className="grid">
-          <li><Link to="/products#auto-grade">Auto Grade</Link></li>
-          <li><Link to="/products#plan-my-assignments">Plan My Assignments</Link></li>
-        </ul>
+        <div className="cards">
+          <div className="card">
+            <h3>Auto Grade</h3>
+          </div>
+          <div className="card">
+            <h3>Plan My Assignment</h3>
+          </div>
+        </div>
       </section>
 
-      <section className="why">
+      <section className="why-section container">
         <h2>Why Choose EdGenAI?</h2>
-        <ul className="grid">
-          <li>AI for Authentic Learning</li>
-          <li>Transparent &amp; Modular</li>
-          <li>API-first architecture</li>
-          <li>Privacy &amp; Security Focus</li>
-        </ul>
+        <div className="cards">
+          <div className="card">GenAI for Authentic Learning</div>
+          <div className="card">Transparency and Modular</div>
+          <div className="card">Privacy and Security Focus</div>
+        </div>
       </section>
 
-      <section className="cta">
-        <h3>Ready to Transform Learning?</h3>
-        <Link to="/request-access" className="btn-primary">Request Access</Link>
+      <section className="success-section container">
+        <h2>Success Stories</h2>
+        <div className="testimonials">Logos / Testimonials Placeholder</div>
       </section>
     </div>
   );
