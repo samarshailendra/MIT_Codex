@@ -15,8 +15,14 @@ export default function Home() {
           <Link to="/products" className="btn-primary">Explore Products</Link>
         </div>
       </section>
-      <section className="services">
-        <h2>Our Services</h2>
+      <section className="intro">
+        <p className="lead">
+          EdGenAI partners with universities to design authentic learning
+          experiences and deliver trustworthy AI-driven tools.
+        </p>
+      </section>
+      <section className="services" id="offerings">
+        <h2>Our Offerings</h2>
         <div className="offerings">
           <Link to="/services#consultancy" className="card">
             <h3>GenAI Consultancy</h3>
@@ -59,7 +65,7 @@ export default function Home() {
       </section>
 
       <section className="demo">
-        <h2>Platform Demo</h2>
+        <h2>See EdGenAI in Action</h2>
         <div className="video-placeholder" />
       </section>
 

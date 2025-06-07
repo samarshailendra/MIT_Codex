@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Logo from '../assets/logo.svg';
 import './Header.css';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="header">
-      <Link to="/" className="logo">EdGenAI</Link>
+      <Link to="/" className="logo">
+        <img src={Logo} alt="EdGenAI logo" />
+        <span className="logo-text">EdGenAI</span>
+      </Link>
       <button
         className="menu-toggle"
         onClick={() => setOpen((v) => !v)}

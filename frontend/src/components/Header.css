@@ -20,9 +20,21 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 700;
   text-decoration: none;
   color: #fff;
+  font-size: 1.25rem;
+}
+
+.logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.logo-text {
   font-size: 1.25rem;
 }
 
@@ -52,6 +64,8 @@
 
 .nav-link:hover {
   opacity: 0.8;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .nav-item {
