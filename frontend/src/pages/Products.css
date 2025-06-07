@@ -8,6 +8,7 @@
   margin-bottom: 2rem;
 }
 
+
 .product {
   margin-bottom: 2rem;
   background: #eef2ff;
@@ -22,4 +23,32 @@
 .product ul {
   list-style: disc inside;
   margin-bottom: 1rem;
+}
+
+.product-demos {
+  margin-top: 3rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.video-placeholder {
+  background: #d1d5db;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.video-placeholder::after {
+  content: 'Demo Video';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #374151;
 }

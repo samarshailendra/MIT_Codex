@@ -7,7 +7,7 @@ export default function Products() {
       <h1>Our Products</h1>
       <p className="subtitle">Purpose-built AI tools for modern education.</p>
 
-      <section className="product">
+      <section id="auto-grade" className="product">
         <h2>Auto Grade</h2>
         <ul>
           <li>AI-powered grading</li>
@@ -18,7 +18,7 @@ export default function Products() {
         <Link to="/request-access" className="btn-primary">Request Access</Link>
       </section>
 
-      <section className="product">
+      <section id="plan-my-assignments" className="product">
         <h2>Plan My Assignments</h2>
         <ul>
           <li>Assignment planning</li>
@@ -26,6 +26,14 @@ export default function Products() {
           <li>AI-generated scaffolding</li>
         </ul>
         <Link to="/request-access" className="btn-primary">Request Access</Link>
+      </section>
+
+      <section className="product-demos">
+        <h2>Product Demos</h2>
+        <div className="demo-grid">
+          <div className="video-placeholder">Auto Grade Demo</div>
+          <div className="video-placeholder">Plan My Assignments Demo</div>
+        </div>
       </section>
     </div>
   );

@@ -13,15 +13,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="offerings">
-        <h2>Our Offerings</h2>
+      <section className="intro">
+        <p className="lead">
+          We combine cutting‑edge AI with proven pedagogy to streamline grading
+          and assignment planning while keeping instructors in the loop.
+        </p>
+      </section>
+      <section className="services">
+        <h2>Our Services</h2>
         <ul className="grid">
-          <li>GenAI Consultancy</li>
-          <li>Content Design</li>
-          <li>Authentic Assignment Design</li>
-          <li>Course Design</li>
-          <li>Auto Grade</li>
-          <li>Plan My Assignments</li>
+          <li><Link to="/services#consultancy">GenAI Consultancy</Link></li>
+          <li><Link to="/services#content-design">Content Design</Link></li>
+          <li><Link to="/services#authentic">Authentic Assignment Design</Link></li>
+          <li><Link to="/services#course-design">Course Design</Link></li>
+        </ul>
+      </section>
+
+      <section className="home-products">
+        <h2>Our Products</h2>
+        <ul className="grid">
+          <li><Link to="/products#auto-grade">Auto Grade</Link></li>
+          <li><Link to="/products#plan-my-assignments">Plan My Assignments</Link></li>
         </ul>
       </section>
 
