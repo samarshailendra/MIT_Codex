@@ -1,6 +1,15 @@
 .hero {
   text-align: center;
   padding: 4rem 1rem;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .hero-actions {

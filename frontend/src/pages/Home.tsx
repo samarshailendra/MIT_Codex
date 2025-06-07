@@ -41,10 +41,10 @@ export default function Home() {
       <section className="products-section container">
         <h2>Our Products</h2>
         <div className="cards">
-          <div className="card">
+          <div className="card link-card">
             <h3>Auto Grade</h3>
           </div>
-          <div className="card">
+          <div className="card link-card">
             <h3>Plan My Assignment</h3>
           </div>
         </div>
@@ -53,9 +53,9 @@ export default function Home() {
       <section className="why-section container">
         <h2>Why Choose EdGenAI?</h2>
         <div className="cards">
-          <div className="card">GenAI for Authentic Learning</div>
-          <div className="card">Transparency and Modular</div>
-          <div className="card">Privacy and Security Focus</div>
+          <div className="card link-card">GenAI for Authentic Learning</div>
+          <div className="card link-card">Transparency and Modular</div>
+          <div className="card link-card">Privacy and Security Focus</div>
         </div>
       </section>
 
